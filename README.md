@@ -23,4 +23,4 @@ You can access the SQL 102 course here:
 [SQL 102 Course Link](https://satr.codes/course/677a2f2f-f860-4026-87e0-beebb4a79cea/view)
 
 ## License
-This repository is licensed under the MIT [LICENSE](https://github.com/salahsaeed19/SQL_Courses_Satr?tab=License-1-ov-file).
+This repository is licensed under the MIT [LICENSE](https://github.com/salahsaeed19/SQL_Courses_Satr?tab=MIT-1-ov-file).
