@@ -1,0 +1,116 @@
+-- إنشاء قاعدة البيانات
+CREATE DATABASE AlTamayoz;
+
+-- استخدام قاعدة البيانات التي تم إنشاؤها
+USE AlTamayoz;
+
+-- إنشاء جدول الطلاب
+CREATE TABLE Students (
+    id INT PRIMARY KEY,                -- الرقم التسلسلي للطالب
+    student_name VARCHAR(255),        -- اسم الطالب
+    birth_date DATE,                  -- تاريخ الميلاد
+    gender CHAR(1),                   -- جنس الطالب (F أو M)
+    enrollment_date DATE,             -- تاريخ الالتحاق
+    email VARCHAR(255),               -- البريد الإلكتروني
+    level INT,                        -- المستوى الدراسي (1-6)
+    track VARCHAR(50),                -- المسار (علمي أو انساني)
+    gpa DECIMAL(3,2)                  -- المعدل التراكمي (من 0 إلى 100)
+);
+
+-- إنشاء جدول المعلمين
+CREATE TABLE Teachers (
+    id INT PRIMARY KEY,                -- الرقم التسلسلي للمعلم
+    teacher_name VARCHAR(255),         -- اسم المعلم
+    birth_date DATE,                   -- تاريخ الميلاد
+    gender CHAR(1),                    -- جنس المعلم (F أو M)
+    email VARCHAR(255),                -- البريد الإلكتروني
+    office_number VARCHAR(50)          -- رقم المكتب
+);
+
+-- إنشاء جدول المواد
+CREATE TABLE Subjects (
+    id INT PRIMARY KEY,                -- الرقم التسلسلي للمادة
+    subject_name VARCHAR(255)          -- اسم المادة
+);
+
+-- إدخال معلومات 30 طالب كحد أدنى
+INSERT INTO Students (id, student_name, birth_date, gender, enrollment_date, email, level, track, gpa) VALUES
+(1, 'Ahmad', '2005-01-01', 'M', '2021-09-01', 'ahmad@example.com', 1, 'علمي', 90.50),
+(2, 'Sara', '2005-02-02', 'F', '2021-09-01', 'sara@example.com', 1, 'انساني', 85.00),
+(3, 'Mohammad', '2005-03-03', 'M', '2021-09-01', 'mohammad@example.com', 2, 'علمي', 78.00),
+(4, 'Khaled', '2005-04-04', 'M', '2021-09-01', 'khaled@example.com', 2, 'انساني', 88.50),
+(5, 'Lina', '2005-05-05', 'F', '2021-09-01', 'lina@example.com', 3, 'علمي', 92.00),
+(6, 'Rami', '2005-06-06', 'M', '2021-09-01', 'rami@example.com', 3, 'انساني', 81.00),
+(7, 'Fatima', '2005-07-07', 'F', '2021-09-01', 'fatima@example.com', 4, 'علمي', 77.50),
+(8, 'Nabil', '2005-08-08', 'M', '2021-09-01', 'nabil@example.com', 4, 'انساني', 84.00),
+(9, 'Jamal', '2005-09-09', 'M', '2021-09-01', 'jamal@example.com', 5, 'علمي', 91.00),
+(10, 'Maya', '2005-10-10', 'F', '2021-09-01', 'maya@example.com', 5, 'انساني', 82.00),
+(11, 'Omar', '2005-11-11', 'M', '2021-09-01', 'omar@example.com', 6, 'علمي', 89.00),
+(12, 'Huda', '2005-12-12', 'F', '2021-09-01', 'huda@example.com', 6, 'انساني', 86.50),
+(13, 'Sami', '2005-01-13', 'M', '2021-09-01', 'sami@example.com', 1, 'علمي', 80.00),
+(14, 'Dina', '2005-02-14', 'F', '2021-09-01', 'dina@example.com', 1, 'انساني', 75.00),
+(15, 'Tariq', '2005-03-15', 'M', '2021-09-01', 'tariq@example.com', 2, 'علمي', 88.00),
+(16, 'Ranya', '2005-04-16', 'F', '2021-09-01', 'ranya@example.com', 2, 'انساني', 83.50),
+(17, 'Ziad', '2005-05-17', 'M', '2021-09-01', 'ziad@example.com', 3, 'علمي', 78.00),
+(18, 'Layla', '2005-06-18', 'F', '2021-09-01', 'layla@example.com', 3, 'انساني', 91.50),
+(19, 'Ibrahim', '2005-07-19', 'M', '2021-09-01', 'ibrahim@example.com', 4, 'علمي', 85.00),
+(20, 'Hana', '2005-08-20', 'F', '2021-09-01', 'hana@example.com', 4, 'انساني', 76.00),
+(21, 'Adel', '2005-09-21', 'M', '2021-09-01', 'adel@example.com', 5, 'علمي', 92.00),
+(22, 'Yasmin', '2005-10-22', 'F', '2021-09-01', 'yasmin@example.com', 5, 'انساني', 87.00),
+(23, 'Faisal', '2005-11-23', 'M', '2021-09-01', 'faisal@example.com', 6, 'علمي', 90.00),
+(24, 'Salma', '2005-12-24', 'F', '2021-09-01', 'salma@example.com', 6, 'انساني', 84.00),
+(25, 'Hussein', '2005-01-25', 'M', '2021-09-01', 'hussein@example.com', 1, 'علمي', 88.00),
+(26, 'Mariam', '2005-02-26', 'F', '2021-09-01', 'mariam@example.com', 1, 'انساني', 82.00),
+(27, 'Khalid', '2005-03-27', 'M', '2021-09-01', 'khalid@example.com', 2, 'علمي', 79.00),
+(28, 'Reem', '2005-04-28', 'F', '2021-09-01', 'reem@example.com', 2, 'انساني', 85.50),
+(29, 'Hadi', '2005-05-29', 'M', '2021-09-01', 'hadi@example.com', 3, 'علمي', 93.00),
+(30, 'Dalia', '2005-06-30', 'F', '2021-09-01', 'dalia@example.com', 3, 'انساني', 81.00);
+
+-- إدخال معلومات 10 معلمين كحد أدنى
+INSERT INTO Teachers (id, teacher_name, birth_date, gender, email, office_number) VALUES
+(1, 'Mr. Ahmad', '1980-01-01', 'M', 'ahmad.teacher@example.com', '101'),
+(2, 'Ms. Sara', '1985-02-02', 'F', 'sara.teacher@example.com', '102'),
+(3, 'Mr. Mohammad', '1982-03-03', 'M', 'mohammad.teacher@example.com', '103'),
+(4, 'Ms. Fatima', '1988-04-04', 'F', 'fatima.teacher@example.com', '104'),
+(5, 'Mr. Khaled', '1975-05-05', 'M', 'khaled.teacher@example.com', '105'),
+(6, 'Ms. Huda', '1990-06-06', 'F', 'huda.teacher@example.com', '106'),
+(7, 'Mr. Rami', '1983-07-07', 'M', 'rami.teacher@example.com', '107'),
+(8, 'Ms. Layla', '1992-08-08', 'F', 'layla.teacher@example.com', '108'),
+(9, 'Mr. Tariq', '1981-09-09', 'M', 'tariq.teacher@example.com', '109'),
+(10, 'Ms. Hanan', '1984-10-10', 'F', 'hanan.teacher@example.com', '110');
+
+-- إدخال معلومات 6 مواد كحد أدنى
+INSERT INTO Subjects (id, subject_name) VALUES
+(1, 'Mathematics'),
+(2, 'Science'),
+(3, 'History'),
+(4, 'Literature'),
+(5, 'Art'),
+(6, 'Physical Education');
+
+-- عرض الجداول المتاحة في قاعدة البيانات
+SHOW TABLES;
+
+-- عرض محتويات جميع الجداول
+SELECT * FROM Students;
+SELECT * FROM Teachers;
+SELECT * FROM Subjects;
+
+-- عرض محتويات جدول الطلاب مع ترتيب الصفوف تصاعديًا حسب اسم الطالب
+SELECT * FROM Students ORDER BY student_name ASC;
+
+-- عرض محتويات جدول الطلاب مع إعطاء اسم مستعار لحقل “اسم الطالب”
+SELECT student_name AS "Student Name" FROM Students;
+
+-- تعديل بيانات أحد الطلاب وتغيير البريد الالكتروني للطالب
+UPDATE Students 
+SET email = 'newemail@example.com' 
+WHERE id = 1;
+
+-- تعديل بيانات أحد المعلمين وتغيير رقم المكتب الخاص به
+UPDATE Teachers 
+SET office_number = '202' 
+WHERE id = 2;
+
+-- تعديل اسم أحد الجداول
+ALTER TABLE Teachers RENAME TO Instructors;
