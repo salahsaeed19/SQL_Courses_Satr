@@ -1,0 +1,68 @@
+-- إنشاء جدول للطلاب المتفوقين
+CREATE TABLE TopStudents AS
+SELECT *
+FROM Students
+WHERE gpa > 90;
+
+-- إنشاء جدول للطلاب الغير مجتازين
+CREATE TABLE NonPassingStudents AS
+SELECT *
+FROM Students
+WHERE gpa < 60;
+
+-- عرض أسماء الطلاب التي تبدأ بحرف A
+SELECT student_name
+FROM Students
+WHERE student_name LIKE 'A%';
+
+-- عرض أسماء الطلاب التي تحتوي أسمائهم على أربع خانات
+SELECT student_name
+FROM Students
+WHERE LENGTH(student_name) = 4;
+
+-- تطبيق الدوال التجميعية مع تسمية واضحة للناتج
+SELECT 
+    AVG(gpa) AS "Average GPA",
+    MAX(gpa) AS "Maximum GPA",
+    MIN(gpa) AS "Minimum GPA"
+FROM Students;
+
+-- حصر وعرض أسماء الطلاب المتفوقين في المستوى السادس الحاصلين على معدل 100
+SELECT student_name
+FROM Students
+WHERE level = 6 AND gpa = 100;
+
+-- عرض الطلاب الذين في المستوى الأول وأعمارهم بين 15 و16 سنة
+SELECT student_name, birth_date
+FROM Students
+WHERE level = 1 
+  AND YEAR(CURRENT_DATE) - YEAR(birth_date) BETWEEN 15 AND 16;
+
+-- عرض عدد الطلاب الموجودين بالمستوى 2
+SELECT COUNT(*) AS "Number of Level 2 Students"
+FROM Students
+WHERE level = 2;
+
+-- استعراض مسارات الطلاب بدون تكرار
+SELECT DISTINCT track
+FROM Students;
+
+-- عرض أسماء المواد بالأحرف الكبيرة
+SELECT UPPER(subject_name) AS "Subject Name"
+FROM Subjects;
+
+-- عرض المتوسط الحسابي للمعدل التراكمي وتقريب الرقم لأقرب أصغر عدد
+SELECT FLOOR(AVG(gpa)) AS "Rounded Average GPA"
+FROM Students;
+
+-- تبديل الجنس باستخدام دوال النصوص
+UPDATE Students
+SET gender = CASE 
+    WHEN gender = 'F' THEN 'Female'
+    WHEN gender = 'M' THEN 'Male'
+END;
+
+-- تحديث المعدل التراكمي للطلاب الذين معدلهم أقل من 60
+UPDATE Students
+SET gpa = gpa + 5
+WHERE gpa < 60;
